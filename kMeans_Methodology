@@ -2,7 +2,8 @@ Methodology
 
 1.	To find the “natural clusters”, I first plotted the given 2D-data. From the plot it is very clear that the data has 3 natural clusters. 
 2.	On the given data, I have performed k-means with 3 clusters. For k-means, I used ‘sklearn’ package. In the code, ‘kMeans_clustering_main’ method has most of the k-means logic. 
-3.	To find the outliers, code takes an input ‘threshold_percentile’ from user, I followed below approach: Found the distance of each data point from its corresponding cluster centroid, this information is stored in ‘distance_from_assigned_cluster_centriod’ column.  Found the 95th percentile (assuming ‘threshold_percentile’ input value is 95) value (say threshold_distance) on the ‘distance_from_assigned_cluster_centriod’ column. Any data point having distance from its cluster centroid more than the threshold_distance value is labelled as Outlier. I have added a new column ‘is_outlier’ which indicates if the data point is Outlier or not, depending on the input threshold_percentile. 
+3.	To find the outliers, code takes an input ‘threshold_percentile’ from user, I followed below approach: 
+        Found the distance of each data point from its corresponding cluster centroid, this information is stored in ‘distance_from_assigned_cluster_centriod’ column.  Found the 95th percentile (assuming ‘threshold_percentile’ input value is 95) value (say threshold_distance) on the ‘distance_from_assigned_cluster_centriod’ column. Any data point having distance from its cluster centroid more than the threshold_distance value is labelled as Outlier. I have added a new column ‘is_outlier’ which indicates if the data point is Outlier or not, depending on the input threshold_percentile. 
 
 Inputs to the code:
 1.	input_file : Location of the input csv data file
