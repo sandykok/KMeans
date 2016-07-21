@@ -1,0 +1,20 @@
+Methodology
+
+1.	To find the “natural clusters”, I first plotted the given 2D-data. From the plot it is very clear that the data has 3 natural clusters. 
+2.	On the given data, I have performed k-means with 3 clusters. For k-means, I used ‘sklearn’ package. In the code, ‘kMeans_clustering_main’ method has most of the k-means logic. 
+3.	To find the outliers, code takes an input ‘threshold_percentile’ from user, I followed below approach: Found the distance of each data point from its corresponding cluster centroid, this information is stored in ‘distance_from_assigned_cluster_centriod’ column.  Found the 95th percentile (assuming ‘threshold_percentile’ input value is 95) value (say threshold_distance) on the ‘distance_from_assigned_cluster_centriod’ column. Any data point having distance from its cluster centroid more than the threshold_distance value is labelled as Outlier. I have added a new column ‘is_outlier’ which indicates if the data point is Outlier or not, depending on the input threshold_percentile. 
+
+Inputs to the code:
+1.	input_file : Location of the input csv data file
+2.	threshold_percentile : threshold percentile distance after which data is labelled as Outlier
+3.	output_folder : Location to save output files
+
+Output Files:
+1.	given_data.png : Basic plot of the given data
+2.	cluster_centers.csv : This file has k-means centriods co-ordinates.
+3.	data_with_cluster_assignment.csv : This file has given input data, with an extra column ‘assigned_cluster’. This column indicates the cluster_id that data point belongs to
+4.	plot_with_cluster_assignment.png : This image shows how clusters are assigned to the data. Each cluster is given a different color.
+5.	final_data_with_outlier_info.csv : This file has complete output details including is_outlier, distance of the data point from its cluster centroid
+
+Sample command from CLI:
+	python kmeans_cluster.py --input_file /Users/sandy/Documents/data_2d.csv --threshold_percentile 95 --output_folder /Users/sandy/Documents/
